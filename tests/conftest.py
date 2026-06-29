@@ -384,7 +384,7 @@ def pytest_report_header(config):
     
     try:
         import muscle3
-        muscle3_version = muscle3.__version__
+        muscle3_version = getattr(muscle3, "__version__", "unknown")
         muscle3_status = f"installed (v{muscle3_version})"
     except ImportError:
         muscle3_status = "NOT installed"

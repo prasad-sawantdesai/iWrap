@@ -4,7 +4,11 @@ Test script to verify MUSCLE3 integration into iWrap core
 """
 
 import sys
-sys.path.insert(0, '/home/ITER/sawantp1/github/iWrap')
+from pathlib import Path
+
+IWRAP_ROOT = Path(__file__).resolve().parent
+if str(IWRAP_ROOT) not in sys.path:
+    sys.path.insert(0, str(IWRAP_ROOT))
 
 from iwrap.generation_engine.engine import Engine
 

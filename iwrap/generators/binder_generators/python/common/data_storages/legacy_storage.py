@@ -56,7 +56,9 @@ class LegacyIDSStorage(GenericIDSStorage):
 
     def save_data(self, ids_description: IDSDescription, legacy_ids):
         if self.__db_entry is None:
-            self.__db_entry = self.__open_for_write(getattr(legacy_ids, "_version", None))
+            self.__db_entry = self.__open_for_write(
+                getattr(legacy_ids, "_version", None)
+            )
         self.__db_entry.put(legacy_ids, ids_description.occurrence)
 
     def sync_for_external_access(self):
